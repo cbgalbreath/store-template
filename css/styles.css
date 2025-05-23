@@ -1,1 +1,394 @@
+/* ========== Global / Reset ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  padding: 1rem;
+  background-color: #2d033b;
+  color: #fff;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+
+.section-box {
+  background-color: #fff;
+  color: #222;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 0 auto 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  max-width: 600px;
+
+}
+
+/* ========== Header + Nav ========== */
+header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+header img {
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 0.5rem;
+  background: #eaeaea;
+  border-radius: 5px;
+}
+
+nav a:hover {
+  background: #d4d4d4;
+}
+
+/* ========== Desktop Header + Nav ========== */
+
+@media (min-width: 768px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  header img {
+    height: 60px;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 1.25rem;
+    margin: 0;
+  }
+
+  nav li {
+    display: inline;
+  }
+}
+
+/* ========== Hero Section ========== */
+.hero {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  background-image: url('../images/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: #fff;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero .tagline {
+  max-width: 800px;
+  margin: 0 auto 1rem;
+  font-size: 2rem;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  /* dark overlay */
+  z-index: 0;
+}
+
+.hero h2,
+.hero p,
+.hero .button {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h2,
+.hero p {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.button {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #e6007e;
+  /* pink */
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  margin: 0.5rem 0.25rem;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+.button:hover {
+  background-color: #b00062;
+}
+
+.button-alt {
+  background-color: #00b2ca;
+}
+
+.button-alt:hover {
+  background-color: #0090a7;
+}
+
+/* ========== Desktop Hero Section ========== */
+
+
+@media (min-width: 768px) {
+  .hero {
+    flex-direction: column;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .hero h2 {
+    font-size: 2.5rem;
+    max-width: 800px;
+    margin: 0 auto 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+}
+
+/* ========== Products Section ========== */
+.products-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.product-card {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  color: #000;
+}
+
+.product-image img {
+  width: 100%;
+  height: auto;
+}
+
+.product-description {
+  padding: 0.75rem;
+}
+
+/* ========== Products Section (Desktop) ========== */
+
+@media (min-width: 768px) {
+  .products-wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    align-items: stretch;
+  }
+
+  .product-card {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 420px;
+  }
+
+  .product-image {
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .product-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .product-description {
+    margin: 5px;
+    padding: .75rem;
+  }
+}
+
+/* ========== Location Section ========== */
+.location {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.location-wrapper {
+  padding: 1rem;
+}
+
+.map iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.location p {
+  margin-top: 1rem;
+}
+
+/* ========== Desktop Location Section ========== */
+
+@media (min-width: 768px) {
+
+  .location {
+    margin: 2rem auto;
+    max-width: 1000px;
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  .location-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+
+  .map iframe {
+    max-width: 400px;
+    height: 300px;
+    border: none;
+    flex-shrink: 0;
+  }
+
+  .information {
+    flex: 1;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .information .cta-btn {
+    margin-top: 1.5rem;
+    align-self: flex-start;
+  }
+
+}
+
+/* ========== Contact Section ========== */
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact label {
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.contact input,
+.contact textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.contact button[type="submit"] {
+  background-color: #e6007e;
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.contact button[type="submit"]:hover {
+  background-color: #b00062;
+}
+
+@media (min-width: 768px) {
+
+  .contact {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 2rem;
+  }
+
+  .contact form {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* ========== Footer ========== */
+footer {
+  text-align: center;
+  color: #fff;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+}
